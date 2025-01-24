@@ -8,19 +8,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fastcampus.sns.controller.request.UserJoinRequest;
 import com.fastcampus.sns.controller.request.UserLoginRequest;
+import com.fastcampus.sns.exception.ErrorCode;
 import com.fastcampus.sns.exception.SnsApplicationException;
 import com.fastcampus.sns.model.User;
 import com.fastcampus.sns.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-@SpringBootApplication
+@SpringBootTest  // 스프링 컨텍스트를 로드하도록 추가
 @AutoConfigureMockMvc
 public class UserControllerTest {
   
@@ -30,7 +31,7 @@ public class UserControllerTest {
   @Autowired
   private ObjectMapper objectMapper;
   
-  @MockitoBean
+  @MockitoBean(name = "userService")
   private UserService userService;
 
   @Test
@@ -52,7 +53,7 @@ public class UserControllerTest {
     String userName = "userName";
     String password = "password";
   
-    when(userService.join(userName, password)).thenThrow(new SnsApplicationException());
+    when(userService.join(userName, password)).thenThrow(new SnsApplicationException(ErrorCode.DUPLICATED_USER_NAME));
   
     mockMvc.perform(post("/api/v1/users/join")
             .contentType(MediaType.APPLICATION_JSON)
@@ -81,13 +82,13 @@ public class UserControllerTest {
     String userName = "userName";
     String password = "password";
   
-    when(userService.login(userName, password)).thenThrow(new SnsApplicationException());
+    when(userService.login(userName, password)).thenThrow(new SnsApplicationException(ErrorCode.USER_NOT_FOUND));
     
     mockMvc.perform(post("/api/v1/users/login")
             .contentType(MediaType.APPLICATION_JSON)
             .content(objectMapper.writeValueAsBytes(new UserLoginRequest(userName, password)))
         ).andDo(print())
-        .andExpect(status().isNotFound());
+        .andExpect(status().is(ErrorCode.USER_NOT_FOUND.getStatus().value()));
   }
   
   @Test
@@ -95,13 +96,13 @@ public class UserControllerTest {
     String userName = "userName";
     String password = "password";
     
-    when(userService.login(userName, password)).thenThrow(new SnsApplicationException());
+    when(userService.login(userName, password)).thenThrow(new SnsApplicationException(ErrorCode.INVALID_PASSWORD));
     
     mockMvc.perform(post("/api/v1/users/login")
             .contentType(MediaType.APPLICATION_JSON)
             .content(objectMapper.writeValueAsBytes(new UserLoginRequest(userName, password)))
         ).andDo(print())
-        .andExpect(status().isUnauthorized());
+        .andExpect(status().is(ErrorCode.INVALID_PASSWORD.getStatus().value()));
   }
 
 }

@@ -3,8 +3,11 @@ package com.fastcampus.sns.controller.response;
 import com.fastcampus.sns.model.User;
 import com.fastcampus.sns.model.UserRole;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-
+@Getter
 @AllArgsConstructor
 public class UserJoinResponse {
   
@@ -16,7 +19,7 @@ public class UserJoinResponse {
     return new UserJoinResponse(
         user.getId(),
         user.getUserName(),
-        user.getRole()
+        user.getUserRole()
     );
   }
 }

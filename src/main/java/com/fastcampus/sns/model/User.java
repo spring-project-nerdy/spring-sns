@@ -15,7 +15,7 @@ public class User {
   private Integer id;
   private String userName;
   private String password;
-  private UserRole role;
+  private UserRole userRole;
   private Timestamp registeredAt;
   private Timestamp updatedAt;
   private Timestamp deletedAt;
