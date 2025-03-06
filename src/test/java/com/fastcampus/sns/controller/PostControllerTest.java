@@ -13,6 +13,8 @@ import com.fastcampus.sns.controller.request.PostCreateRequest;
 import com.fastcampus.sns.controller.request.PostModifyRequest;
 import com.fastcampus.sns.exception.ErrorCode;
 import com.fastcampus.sns.exception.SnsApplicationException;
+import com.fastcampus.sns.fixture.PostEntityFixture;
+import com.fastcampus.sns.model.Post;
 import com.fastcampus.sns.service.PostService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -24,7 +26,6 @@ import org.springframework.security.test.context.support.WithAnonymousUser;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 @SpringBootTest  // 스프링 컨텍스트를 로드하도록 추가
 @AutoConfigureMockMvc
@@ -75,6 +76,9 @@ public class PostControllerTest {
     String title = "title";
     String body = "body";
 
+    when(postService.modify(eq(title), eq(body), any(), any()))
+        .thenReturn(Post.fromEntity(PostEntityFixture.get("userName", 1, 1)));
+
     mockMvc.perform(put("/api/v1/posts/1")
             .contentType(MediaType.APPLICATION_JSON)
             .content(objectMapper.writeValueAsBytes(new PostModifyRequest(title, body)))
@@ -118,7 +122,7 @@ public class PostControllerTest {
     String title = "title";
     String body = "body";
 
-    doThrow(new SnsApplicationException(ErrorCode.POST_NOT_FOUND)).when(postService).modify(eq(title), eq(body), any(), eq(1));
+    doThrow(new SnsApplicationException(ErrorCode.POST_NOT_FOUND)).when(postService).modify(eq(title), eq(body), any(), eq(2));
 
     mockMvc.perform(put("/api/v1/posts/2")
             .contentType(MediaType.APPLICATION_JSON)

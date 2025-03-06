@@ -1,7 +1,9 @@
 package com.fastcampus.sns.controller;
 
 import com.fastcampus.sns.controller.request.PostCreateRequest;
+import com.fastcampus.sns.controller.response.PostResponse;
 import com.fastcampus.sns.controller.response.Response;
+import com.fastcampus.sns.model.Post;
 import com.fastcampus.sns.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -19,5 +21,13 @@ public class PostController {
         Authentication authentication) {
         postService.create(request.getTitle(), request.getBody(), authentication.getName());
         return Response.success();
+    }
+
+    @PutMapping("/{postId}")
+    public Response<PostResponse> modify(@PathVariable Integer postId, @RequestBody PostCreateRequest request ,
+        Authentication authentication) {
+        Post post = postService.modify(request.getTitle(), request.getBody(),
+            authentication.getName(), postId);
+        return Response.success(PostResponse.fromPost(post));
     }
 }
