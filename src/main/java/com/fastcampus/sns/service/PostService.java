@@ -7,7 +7,6 @@ import com.fastcampus.sns.model.entity.UserEntity;
 import com.fastcampus.sns.repository.PostEntityRepository;
 import com.fastcampus.sns.repository.UserEntityRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,15 +19,9 @@ public class PostService {
 
   @Transactional
   public void create(String title, String body, String userName) {
-    // user find
     UserEntity userEntity = userEntityRepository.findByUserName(userName)
         .orElseThrow(() -> new SnsApplicationException(
             ErrorCode.USER_NOT_FOUND, String.format("%s not founded", userName)));
-  
-    // post save
-    postEntityRepository.save(new PostEntity());
-    
-    // return
-    
+    PostEntity saved = postEntityRepository.save(PostEntity.of(title, body, userEntity));
   }
 }

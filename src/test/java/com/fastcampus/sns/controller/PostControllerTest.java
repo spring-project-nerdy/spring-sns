@@ -9,6 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fastcampus.sns.controller.request.PostCreateRequest;
 import com.fastcampus.sns.controller.request.UserJoinRequest;
 import com.fastcampus.sns.model.User;
+import com.fastcampus.sns.service.PostService;
 import com.fastcampus.sns.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -31,8 +32,8 @@ public class PostControllerTest {
   @Autowired
   private ObjectMapper objectMapper;
   
-  @MockitoBean(name = "userService")
-  private UserService userService;
+  @MockitoBean(name = "postService")
+  private PostService postService;
   
   @Test
   @WithMockUser

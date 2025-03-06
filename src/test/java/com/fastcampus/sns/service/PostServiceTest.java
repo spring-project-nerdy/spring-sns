@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 @SpringBootTest
@@ -23,10 +24,10 @@ public class PostServiceTest {
   @Autowired
   private PostService postService;
   
-  @Autowired
+  @MockitoBean
   private PostEntityRepository postEntityRepository;
-  
-  @Autowired
+
+  @MockitoBean
   private UserEntityRepository userEntityRepository;
 
   @Test
@@ -34,7 +35,7 @@ public class PostServiceTest {
     String title = "title";
     String body = "body";
     String userName = "userName";
-  
+
     //Mocking
     when(userEntityRepository.findByUserName(userName)).thenReturn(Optional.of(mock(UserEntity.class)));
     when(postEntityRepository.save(any())).thenReturn(mock(PostEntity.class));
