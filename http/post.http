@@ -19,3 +19,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3QwMSIsImlhdCI6M
 "title": "title1 modify",
 "body": "this is body1 modify"
 }
+
+### 글 삭제
+
+DELETE http://localhost:8080/api/v1/posts/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3QwMSIsImlhdCI6MTc0MTI0NTk5MCwiZXhwIjoxNzQzODM3OTkwLCJzdWIiOiJ0ZXN0MDEifQ.ULzPjfbG1Oq8J7zSivzVS40X4Lq92KEU5ck8piSxSzM
