@@ -1,0 +1,5 @@
+### 알람리스트
+
+GET http://localhost:8080/api/v1/users/alarm
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3QwMSIsImlhdCI6MTc0MjczNzc3OCwiZXhwIjoxNzQ1MzI5Nzc4LCJzdWIiOiJ0ZXN0MDEifQ.zmTAZX6ETj9UnN29ShZBjgTCfGopKPdkx63eTcp4-ds

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.fastcampus.sns.service.PostServiceTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-03-20T14:04:44" hostname="juyeong-ui-MacBookPro.local" time="0.123">
+<testsuite name="com.fastcampus.sns.service.PostServiceTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-03-23T13:56:57" hostname="juyeong-ui-MacBookPro.local" time="0.124">
   <properties/>
-  <testcase name="내피드목록요청이_성공한경우()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.05"/>
-  <testcase name="포스트수정이_성공한경우()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.008"/>
-  <testcase name="포스트작성시_요청한유저가_존재하지않는경우_에러발생()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.028"/>
+  <testcase name="내피드목록요청이_성공한경우()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.057"/>
+  <testcase name="포스트수정이_성공한경우()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.007"/>
+  <testcase name="포스트작성시_요청한유저가_존재하지않는경우_에러발생()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.031"/>
   <testcase name="포스트수정시_포스트가_존재하지않는_경우_에러발생()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.004"/>
-  <testcase name="포스트삭제가_성공한경우()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.004"/>
-  <testcase name="포스트삭제시_권한이_없는경우_에러발생()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.004"/>
+  <testcase name="포스트삭제가_성공한경우()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.003"/>
+  <testcase name="포스트삭제시_권한이_없는경우_에러발생()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.003"/>
   <testcase name="피드목록요청이_성공한경우()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.004"/>
-  <testcase name="포스트작성이_성공한경우()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.004"/>
-  <testcase name="포스트수정시_권한이_없는경우_에러발생()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.005"/>
-  <testcase name="포스트삭제시_포스트가_존재하지않는_경우_에러발생()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.008"/>
-  <system-out><![CDATA[2025-03-20T23:04:44.142+09:00  INFO 7744 --- [sns] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.fastcampus.sns.service.PostServiceTest]: PostServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-03-20T23:04:44.145+09:00  INFO 7744 --- [sns] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.fastcampus.sns.SnsApplication for test class com.fastcampus.sns.service.PostServiceTest
+  <testcase name="포스트작성이_성공한경우()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.003"/>
+  <testcase name="포스트수정시_권한이_없는경우_에러발생()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.003"/>
+  <testcase name="포스트삭제시_포스트가_존재하지않는_경우_에러발생()" classname="com.fastcampus.sns.service.PostServiceTest" time="0.003"/>
+  <system-out><![CDATA[2025-03-23T22:56:57.458+09:00  INFO 15752 --- [sns] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.fastcampus.sns.service.PostServiceTest]: PostServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-03-23T22:56:57.461+09:00  INFO 15752 --- [sns] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.fastcampus.sns.SnsApplication for test class com.fastcampus.sns.service.PostServiceTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -23,18 +23,17 @@
 
  :: Spring Boot ::                (v3.4.1)
 
-2025-03-20T23:04:44.162+09:00  INFO 7744 --- [sns] [    Test worker] c.f.sns.service.PostServiceTest          : Starting PostServiceTest using Java 17.0.3.1 with PID 7744 (started by jyung in /Users/jyung/Git/spring-sns)
-2025-03-20T23:04:44.162+09:00  INFO 7744 --- [sns] [    Test worker] c.f.sns.service.PostServiceTest          : No active profile set, falling back to 1 default profile: "default"
-2025-03-20T23:04:44.259+09:00  INFO 7744 --- [sns] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-20T23:04:44.266+09:00  INFO 7744 --- [sns] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 4 JPA repository interfaces.
-2025-03-20T23:04:44.438+09:00  INFO 7744 --- [sns] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-20T23:04:44.440+09:00  INFO 7744 --- [sns] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-03-20T23:04:44.445+09:00  INFO 7744 --- [sns] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-20T23:04:44.446+09:00  INFO 7744 --- [sns] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
-2025-03-20T23:04:44.449+09:00  INFO 7744 --- [sns] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection org.mariadb.jdbc.Connection@1463efcc
-2025-03-20T23:04:44.450+09:00  INFO 7744 --- [sns] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
-2025-03-20T23:04:44.452+09:00  WARN 7744 --- [sns] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-20T23:04:44.452+09:00  INFO 7744 --- [sns] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-03-23T22:56:57.472+09:00  INFO 15752 --- [sns] [    Test worker] c.f.sns.service.PostServiceTest          : Starting PostServiceTest using Java 17.0.3.1 with PID 15752 (started by jyung in /Users/jyung/Git/spring-sns)
+2025-03-23T22:56:57.473+09:00  INFO 15752 --- [sns] [    Test worker] c.f.sns.service.PostServiceTest          : No active profile set, falling back to 1 default profile: "default"
+2025-03-23T22:56:57.530+09:00  INFO 15752 --- [sns] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-23T22:56:57.536+09:00  INFO 15752 --- [sns] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 5 JPA repository interfaces.
+2025-03-23T22:56:57.677+09:00  INFO 15752 --- [sns] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-23T22:56:57.678+09:00  INFO 15752 --- [sns] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-23T22:56:57.680+09:00  INFO 15752 --- [sns] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2025-03-23T22:56:57.682+09:00  INFO 15752 --- [sns] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection org.mariadb.jdbc.Connection@62dd8ce7
+2025-03-23T22:56:57.682+09:00  INFO 15752 --- [sns] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2025-03-23T22:56:57.683+09:00  WARN 15752 --- [sns] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-23T22:56:57.683+09:00  INFO 15752 --- [sns] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
 	Database driver: undefined/unknown
 	Database version: 11.6.2
@@ -42,17 +41,21 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-03-20T23:04:44.497+09:00  INFO 7744 --- [sns] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-03-20T23:04:44.507+09:00  INFO 7744 --- [sns] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-20T23:04:44.543+09:00  WARN 7744 --- [sns] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-03-20T23:04:44.548+09:00  WARN 7744 --- [sns] [    Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
+2025-03-23T22:56:57.686+09:00  INFO 15752 --- [sns] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-23T22:56:57.733+09:00  INFO 15752 --- [sns] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table if exists `alarm` 
+       modify column args json
+2025-03-23T22:56:57.798+09:00  INFO 15752 --- [sns] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-23T22:56:57.833+09:00  WARN 15752 --- [sns] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-23T22:56:57.837+09:00  WARN 15752 --- [sns] [    Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 540d05ba-2189-4cab-bce4-bfbbe7a18f7d
+Using generated security password: 310255c9-ac58-458f-abf8-689074eb2428
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-03-20T23:04:44.549+09:00  INFO 7744 --- [sns] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2025-03-20T23:04:44.650+09:00  INFO 7744 --- [sns] [    Test worker] c.f.sns.service.PostServiceTest          : Started PostServiceTest in 0.503 seconds (process running for 5.225)
+2025-03-23T22:56:57.837+09:00  INFO 15752 --- [sns] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-03-23T22:56:57.907+09:00  INFO 15752 --- [sns] [    Test worker] c.f.sns.service.PostServiceTest          : Started PostServiceTest in 0.444 seconds (process running for 5.601)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
